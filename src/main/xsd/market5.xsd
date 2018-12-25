@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="marketOrders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="places" type="PlacesType" >
+		<!-- 
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="place">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id" type="xs:unsignedByte" />
+                    <xs:element name="name" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+		  -->
+        </xs:element>
+        <xs:element name="securities" type="SecuritiesType">
+		<!-- 
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="share" type="ShareType">
+                
+				<xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="placeId" type="xs:string" />
+                    <xs:element name="isin" type="xs:string" />
+                    <xs:element minOccurs="0" name="name" type="xs:string" />
+                    <xs:element name="date" type="xs:date" />
+                    <xs:element name="open" type="xs:string" />
+                    <xs:element name="high" type="xs:string" />
+                    <xs:element name="low" type="xs:string" />
+                    <xs:element minOccurs="0" name="close" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+			
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+		  	-->
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="PlacesType">
+	<xs:sequence>
+	  <xs:element maxOccurs="unbounded" name="place" type="PlaceType">
+		<!-- <xs:complexType>
+		  <xs:sequence>
+			<xs:element name="id" type="xs:unsignedByte" />
+			<xs:element name="name" type="xs:string" />
+		  </xs:sequence>
+		</xs:complexType>
+		--> 
+	  </xs:element>
+	</xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="PlaceType" >
+	<xs:sequence>
+	  <xs:element name="id" type="xs:unsignedByte" />
+	  <xs:element name="name" type="xs:string" />
+	</xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="ShareType">
+    <xs:sequence>
+      <xs:element name="placeId" type="xs:string" />
+      <xs:element name="isin" type="xs:string" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element name="date" type="xs:date" />
+      <xs:element name="open" type="xs:string" />
+      <xs:element name="high" type="xs:string" />
+      <xs:element name="low" type="xs:string" />
+      <xs:element minOccurs="0" name="close" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>  
+  
+  <xs:complexType name="SecuritiesType">
+        <xs:sequence>
+         <xs:element maxOccurs="unbounded" name="share" type="ShareType" />
+		</xs:sequence> 
+  </xs:complexType>			  
+			  
+  
+</xs:schema>
